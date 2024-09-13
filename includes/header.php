@@ -31,6 +31,7 @@
             <a href="18-ejercicios.php">Ejercicios</a>
             <a href="20-matrices.php">Matrices</a>
             <a href="proyecto/proyeFormu.html">Formulario Actividad</a>
+            <a href="02-login">Mas</a>
         </nav>
         <div class="container">
             <h1>Desarrollo Web con PHP</h1>

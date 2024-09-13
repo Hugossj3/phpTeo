@@ -1,3 +1,8 @@
+<?php
+    require_once 'check.php';
+    echo require_login() ;
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -12,7 +17,7 @@
     <body>
         <div class="welcome-container">
             <h1>Bienvenido <?php 
-            $username=$_GET["nombre"];
+            $username=$_SESSION["user"];
             echo"".$username."";
             ?></h1>
             <p>Has iniciado sesion con exito</p>

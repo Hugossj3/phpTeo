@@ -1,3 +1,9 @@
+<?php
+    require_once 'check.php';
+    if(is_logged_in()){
+        header('Location:welcome.php');
+    }
+?>
 <!DOCTYPE html>
 
 <html>
@@ -18,6 +24,7 @@
                 <button type="submit">Iniciar Sesion</button>
             </form>
         </div>
+        
         
         <script src="js/funciones.js"></script>
     </body>
