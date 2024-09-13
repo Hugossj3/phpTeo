@@ -1,51 +1,4 @@
-function validarContraseña(password) {
-    // Verificar longitud
-    if (password.length < 8 || password.length > 16) {
-      return false;
-    }
-  
-    let tieneMayuscula = false;
-    let tieneMinuscula = false;
-    let tieneNumero = false;
-    let tieneEspecial = false;
-    let consecutivos = 1;
-    let caracterAnterior = '';
-  
-    for (let i = 0; i < password.length; i++) {
-      const caracter = password[i];
-  
-      // Verificar mayúsculas
-      if (caracter >= 'A' && caracter <= 'Z') {
-        tieneMayuscula = true;
-      }
-      // Verificar minúsculas
-      else if (caracter >= 'a' && caracter <= 'z') {
-        tieneMinuscula = true;
-      }
-      // Verificar números
-      else if (caracter >= '0' && caracter <= '9') {
-        tieneNumero = true;
-      }
-      // Verificar caracteres especiales
-      else if ("!@#$%^&*()_+-=[]{}|;:,.<>?€¡¿".includes(caracter)) {
-        tieneEspecial = true;
-      }
-  
-      // Verificar caracteres consecutivos
-      if (caracter === caracterAnterior) {
-        consecutivos++;
-        if (consecutivos > 3) {
-          return false;
-        }
-      } else {
-        consecutivos = 1;
-      }
-      caracterAnterior = caracter;
-    }
-  
-    // Verificar que se cumplan todos los criterios
-    return tieneMayuscula && tieneMinuscula && tieneNumero && tieneEspecial;
-  }
+import { validarContraseña } from "./vContra.js";
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -104,10 +57,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Si hay errores, mostrarlos y prevenir el envío del formulario
         if (errores.length > 0) {
             event.preventDefault();
-            mensajeError.textContent = errores.join(' ');
+            mensajeError.innerHTML=mostrarErrores(errores);
             mensajeError.classList.remove('d-none'); 
         } else {
             mensajeError.classList.add('d-none');
         }
     });
+
+    
 });
+
+function mostrarErrores(lista){
+
+  let texto="";
+
+  lista.map(e=>{
+    texto+=`<p>${e}</p>`;
+  })
+  return texto;
+  
+}
