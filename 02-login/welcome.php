@@ -1,6 +1,6 @@
 <?php
     require_once 'check.php';
-    echo require_login() ;
+    require_login() ;
 ?>
 
 <!DOCTYPE html>
@@ -17,8 +17,7 @@
     <body>
         <div class="welcome-container">
             <h1>Bienvenido <?php 
-            $username=$_SESSION["user"];
-            echo"".$username."";
+            echo htmlspecialchars($_SESSION["user"])
             ?></h1>
             <p>Has iniciado sesion con exito</p>
             <a href="logout.php">Cerrar Sesion</a>

@@ -3,6 +3,7 @@
     if(is_logged_in()){
         header('Location:welcome.php');
     }
+    echo is_logged_in()
 ?>
 <!DOCTYPE html>
 
